@@ -1,0 +1,16 @@
+# common
+
+coverage
+node_modules
+tmp
+*.log
+.DS_Store
+
+# git specific
+
+dist
+lib
+
+.idea
+.vscode
+.npmrc
