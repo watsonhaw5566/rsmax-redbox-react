@@ -12,7 +12,7 @@
   "scripts": {
     "build": "rslib build",
     "dev": "rslib build -w",
-    "prepublish": "npm run clean && npm run build",
+    "prepublish": "npm run format && npm run build",
     "format": "prettier --write .",
     "test": "vitest run"
   },
