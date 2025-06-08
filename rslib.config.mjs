@@ -1,25 +1,22 @@
-import {defineConfig} from "@rslib/core";
-import {pluginReact} from '@rsbuild/plugin-react';
-
+import { defineConfig } from '@rslib/core';
+import { pluginReact } from '@rsbuild/plugin-react';
 
 export default defineConfig({
-    lib: [
-        {
-            format: 'cjs',
-            output: {
-                distPath: {
-                    root: './lib',
-                },
-                externals: {
-                    react: 'react'
-                }
-            },
+  lib: [
+    {
+      format: 'cjs',
+      output: {
+        distPath: {
+          root: './lib',
         },
-    ],
-    output:{
-      type: 'web',
+        externals: {
+          react: 'react',
+        },
+      },
     },
-    plugins: [
-        pluginReact(),
-    ],
-})
+  ],
+  output: {
+    type: 'web',
+  },
+  plugins: [pluginReact()],
+});

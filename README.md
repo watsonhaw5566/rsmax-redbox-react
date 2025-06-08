@@ -29,31 +29,31 @@ Catch an error and give it to `redbox-react`. Works great with
 or manually:
 
 ```javascript
-import RedBox from 'redbox-react'
+import RedBox from 'redbox-react';
 
-const e = new Error('boom')
-const box = <RedBox error={e} />
+const e = new Error('boom');
+const box = <RedBox error={e} />;
 ```
 
 Here is a more useful, full-fleged example:
 
 ```javascript
 /* global __DEV__ */
-import React from 'react'
-import { render } from 'react-dom'
-import App from './components/App'
+import React from 'react';
+import { render } from 'react-dom';
+import App from './components/App';
 
-const root = document.getElementById('root')
+const root = document.getElementById('root');
 
 if (__DEV__) {
-  const RedBox = require('redbox-react').default
+  const RedBox = require('redbox-react').default;
   try {
-    render(<App />, root)
+    render(<App />, root);
   } catch (e) {
-    render(<RedBox error={e} />, root)
+    render(<RedBox error={e} />, root);
   }
 } else {
-  render(<App />, root)
+  render(<App />, root);
 }
 ```
 
@@ -66,12 +66,13 @@ display the error that made it crash.
 **Please use this in development only.**
 
 ## Will this catch errors for me?
+
 No. This is only a UI component for rendering errors and their stack
 traces. It is intended to be used with with other existing solutions
 that automate the error catching for you. See the list at the top of
 this document or take a look at the [examples].
 
-  [examples]: https://github.com/commissure/redbox-react/tree/master/examples
+[examples]: https://github.com/commissure/redbox-react/tree/master/examples
 
 ## Optional Props
 
@@ -79,29 +80,34 @@ The `RedBox` component takes a couple of props that you can use to
 customize its behaviour:
 
 ### `editorScheme` `[?string]`
+
 If a filename in the stack trace is local, the component can create the
 link to open your editor using this scheme eg:
-  - `subl` to create
-    `subl://open?url=file:///filename`.
-  - or `vscode` to create
-    `vscode://file/filename`.
+
+- `subl` to create
+  `subl://open?url=file:///filename`.
+- or `vscode` to create
+  `vscode://file/filename`.
 
 ### `useLines` `[boolean=true]`
+
 Line numbers in the stack trace may be unreliable depending on the
 type of sourcemaps. You can choose to not display them with this flag.
 
 ### `useColumns` `[boolean=true]`
+
 Column numbers in the stack trace may be unreliable depending on the
 type of sourcemaps. You can choose to not display them with this flag.
 
 ### `style` `[?object]`
+
 Allows you to override the styles used when rendering the various parts of the
 component. It will be shallow-merged with the [default styles](./src/style.js).
 
 If you’re using [react-transform-catch-errors] you can add these
 options to your `.babelrc` through the [`imports` property][imports].
 
-  [imports]: https://github.com/gaearon/react-transform-catch-errors#installation
+[imports]: https://github.com/gaearon/react-transform-catch-errors#installation
 
 ## Sourcemaps With Webpack
 

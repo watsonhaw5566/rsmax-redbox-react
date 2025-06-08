@@ -1,8 +1,5 @@
 {
-  "files": [
-    "redbox-react.d.ts",
-    "tests/redbox.tsx"
-  ],
+  "files": ["redbox-react.d.ts", "tests/redbox.tsx"],
   "compilerOptions": {
     "module": "commonjs",
     "moduleResolution": "Classic",

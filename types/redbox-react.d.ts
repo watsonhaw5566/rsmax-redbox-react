@@ -1,14 +1,14 @@
-import * as React from 'react'
+import * as React from 'react';
 
 export interface RedBoxProps {
-  error: Error
+  error: Error;
 
-  filename?: string
-  editorScheme?: string
-  useLines?: boolean
-  useColumns?: boolean
-  style?: React.CSSProperties
-  className?: string
+  filename?: string;
+  editorScheme?: string;
+  useLines?: boolean;
+  useColumns?: boolean;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
 export class RedBoxError extends React.Component<RedBoxProps, {}> {}

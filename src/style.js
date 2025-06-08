@@ -16,24 +16,24 @@ export default {
     fontSize: '16PX',
     wordBreak: 'break-all',
     lineHeight: 1.2,
-    overflow: 'auto'
+    overflow: 'auto',
   },
   message: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   stack: {
     fontFamily: 'monospace',
-    marginTop: '2em'
+    marginTop: '2em',
   },
   frame: {
-    marginTop: '1em'
+    marginTop: '1em',
   },
   file: {
     fontSize: '0.8em',
-    color: 'rgba(255, 255, 255, 0.7)'
+    color: 'rgba(255, 255, 255, 0.7)',
   },
   linkToFile: {
     textDecoration: 'none',
-    color: 'rgba(255, 255, 255, 0.7)'
-  }
+    color: 'rgba(255, 255, 255, 0.7)',
+  },
 };

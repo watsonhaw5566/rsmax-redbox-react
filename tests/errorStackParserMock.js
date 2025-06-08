@@ -1,5 +1,5 @@
 export default (framesStub) => {
   return {
-    parse: () => framesStub
-  }
-}
+    parse: () => framesStub,
+  };
+};
