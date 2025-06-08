@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, {Component} from 'react'
 import style from './style.js'
-import ErrorStackParser from 'error-stack-parser'
+import {parse} from 'error-stack-parser-es'
 import assign from 'object-assign'
 import {isFilenameAbsolute, makeUrl, makeLinkText} from './lib'
 import { mapStackTrace } from 'sourcemapped-stacktrace'
@@ -71,7 +71,7 @@ export class RedBoxError extends Component {
     // The rest needs to be fixed.
     for (let stackLine of stackLines) {
       const evalStackLine = stackLine.match(
-        /(.+)\(eval at (.+) \(.+?\), .+(\:[0-9]+\:[0-9]+)\)/
+          /(.+)\(eval at (.+) \(.+?\), .+(\:[0-9]+\:[0-9]+)\)/
       )
       if (evalStackLine) {
         const [, atSomething, file, rowColumn] = evalStackLine
@@ -108,13 +108,14 @@ export class RedBoxError extends Component {
         url = makeUrl(f.fileName, editorScheme, lines, columns)
         text = makeLinkText(f.fileName, lines, columns)
       }
+
       return (
-        <View style={frame} key={index}>
-          <View>{f.functionName}</View>
-          <View style={file}>
-            <Text style={linkToFile}>{text}</Text>
+          <View style={frame} key={index}>
+            <View>{f.functionName}</View>
+            <View style={file}>
+              <Text style={linkToFile}>{text}</Text>
+            </View>
           </View>
-        </View>
       )
     })
   }
@@ -130,26 +131,26 @@ export class RedBoxError extends Component {
     let frames
     let parseError
     try {
-      frames = ErrorStackParser.parse(error)
+      frames = parse(error)
     } catch (e) {
       parseError = new Error('Failed to parse stack trace. Stack trace information unavailable.')
     }
 
     if (parseError) {
       frames = (
-        <View style={frame} key={0}>
-          <View>{parseError.message}</View>
-        </View>
+          <View style={frame} key={0}>
+            <View>{parseError.message}</View>
+          </View>
       )
     } else {
       frames = this.renderFrames(frames)
     }
 
     return (
-      <View style={redbox} className={className}>
-        <View style={message}>{error.name}: {error.message}</View>
-        <View style={stack}>{frames}</View>
-      </View>
+        <View style={redbox} className={className}>
+          <View style={message}>{error.name}: {error.message}</View>
+          <View style={stack}>{frames}</View>
+        </View>
     )
   }
 }

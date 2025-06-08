@@ -13,6 +13,7 @@
     "build": "rslib build",
     "dev": "rslib build -w",
     "prepublish": "npm run clean && npm run build",
+    "format": "prettier --write .",
     "test": "vitest run"
   },
   "repository": {
@@ -37,20 +38,19 @@
   "devDependencies": {
     "@rslib/core": "^0.6.9",
     "@types/react": "^18.0",
-    "react": "^18.0.0",
+    "react": "^18.3.0",
     "react-addons-test-utils": "^15.0.0",
-    "react-dom": "^18.0.0",
-    "rsmax": "^1.0.5",
+    "react-dom": "^18.3.0",
     "@rsbuild/plugin-react": "^1.3.1",
-    "typescript": "^2.3.2",
-    "vitest": "^3.1.3"
+    "vitest": "^3.1.3",
+    "prettier": "^3.5.3"
   },
   "peerDependencies": {
     "react": "^18.0.0",
-    "rsmax": "^1.0.5"
+    "rsmax": "^1.3.0"
   },
   "dependencies": {
-    "error-stack-parser": "^1.3.6",
+    "error-stack-parser-es": "^1.0.5",
     "object-assign": "^4.0.1",
     "prop-types": "^15.5.4",
     "sourcemapped-stacktrace": "^1.1.6"
